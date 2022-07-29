@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="/js/blog.js"></script>
+        <style>
+            * {
+                font-family: Raleway, Arial, Helvetica, sans-serif;
+            }
+
+            @font-face {
+                font-family: Raleway;
+                src: url(/fonts/Raleway/Raleway-VariableFont_wght.ttf)
+            }
+
+            #addPost {
+                font-family: Raleway;
+                color: red;
+                margin: 0 auto;
+                display: block;
+                font-size: 20px;
+            }
+
+            h1 {
+                text-align: center;
+            }
+
+            .contentOfPost {
+                display: flex;
+                text-align: center;
+                width: 400px;
+            }
+
+            input[type=text] {
+                width: 90%;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                padding: 15px;
+            }
+
+            input[type=submit], #cancel {
+                width: 500px;
+                border: 1px solid #ccc;
+                padding: 12px 20px;
+                background-color: pink;
+                color: white;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                display: block;
+                font-size: 20px;
+            }
+
+            #blogPost {
+                font-size: 20px;
+            }
+
+            #cancel {
+                background-color: red;
+                margin: 0 auto;
+                margin-top: 30px;
+                display: block;
+            }
+
+            .addStyleEdit::before {
+                color: green;
+                width: 200px;
+                padding: 12px 20px;
+                content: "✏️";
+            }
+
+            .addStyleDelete::before {
+                color: orange;
+                width: 200px;
+                padding: 12px 20px;
+                content: "🗑️";
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+
+        </header>
+
+        <main>
+            <h1>Blog</h1>
+            <button type="button" id="addPost">Add Blog Post</button> <br>
+
+            <ul id="mylist">
+
+            </ul>
+
+            <dialog id="blogPost">
+                <form id="contentOfPost">
+                    <fieldset>
+                    <legend>Add a Blog Post</legend>
+                    <label for="title">Title</label>
+                    <input type="text" name="text" id="title-text"> <br> <br>
+                    <label for="date">Date</label>
+                    <input type="text" name="textDate"> <br> <br>
+                    <label for="summary">Summary</label>
+                    <input type="text" name="textSummary"> <br> <br>
+                    <input type="submit" value="Add Post">
+                </fieldset>
+                </form>
+                <button type="button" id="cancel" value="cancel" onclick="blogPost.close()">Cancel</button>
+                <output name="content" id="content"></output>
+            </dialog>
+
+            <script type="module">
+                import {createForm} from '/js/blog.js';
+                import {init} from '/js/blog.js';
+                import {addPost} from '/js/blog.js';
+                import {deletePost} from '/js/blog.js';
+                import {editPost} from '/js/blog.js';
+                import {loadItems} from '/js/blog.js';
+                import {storeItems} from '/js/blog.js';
+
+                document.getElementById("addPost").addEventListener("click", () => {
+                    createForm();
+                });
+
+                const listEl = document.getElementById("mylist");
+                const formEl = document.getElementById("contentOfPost");
+                init(listEl, formEl);
+                loadItems();
+                storeItems();
+
+            </script>
+
+        </main>
+    </body>
+</html>

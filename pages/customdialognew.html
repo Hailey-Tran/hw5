@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/styles/sitestyle.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.10/purify.min.js"></script>
+        <title>Hailey's Portfolio</title>
+    </head>
+
+    <body>
+        <header>
+
+        </header>
+
+        <main>
+            
+            <button type="button" id="alertButton">Alert</button> 
+
+            <button type="button" id="confirmButton">Confirm</button> 
+            <output name="confirmResult" id="confirmResult"></output> 
+
+            <button type="button" id="promptButton">Prompt</button> 
+            <output name="resultPrompt" id="resultPrompt"></output> 
+            
+
+            <dialog id="alertDialog">
+                <p id="alertMsg"></p>
+                <button type="button" id="cancel" value="cancel" onclick="alertDialog.close()">Cancel</button>
+                <button type="button" id="okay" value="okay" onclick="alertDialog.close()">Ok</button>
+
+            </dialog>
+
+            <dialog id="confirmDialog">
+                <p id="confirmMsg"></p>
+                <button type="button" value="cancelConfirm" id="cancelConfirm">Cancel</button>
+                <button type="button" value="okayConfirm" id="okayConfirm">Ok</button>
+                <output name="confirmResult" id="confirmResult"></output> <br>
+            </dialog>
+
+            <dialog id="promptDialog">
+                <p id="promptMsg"></p>
+                <input type="text" id="userType" name="userType"><br><br>
+                <button type="button" id="promptCancel" value="promptCancel">Cancel</button>
+                <button type="button" id="promptOkay" value="promptOkay">Ok</button>
+                <output name="resultPrompt" id="resultPrompt"></output> <br>
+            </dialog>
+
+            <script type="module">
+                const clean = DOMPurify.sanitize(dirty);
+        
+                import {alertFunc} from "/js/customdialog.js";
+                import {confirmFunc} from "/js/customdialog.js";
+                import {promptFunc} from "/js/customdialog.js";
+                
+                document.getElementById("alertButton").addEventListener("click", () => {
+                    alertFunc("This is the alert button!");
+                });
+
+                document.getElementById("confirmButton").addEventListener("click", () => {
+                    confirmFunc("This is the confirm button!");
+                    
+                });
+
+                document.getElementById("promptButton").addEventListener("click", () => {
+                    promptFunc("This is the prompt button!");
+                });
+
+                document.getElementById("cancelConfirm").addEventListener("click", () => {
+                    document.getElementById("confirmResult").innerHTML = "User clicked cancel";
+                    document.getElementById("confirmDialog").close();
+                });
+
+                document.getElementById("okayConfirm").addEventListener("click", () => {
+                    document.getElementById("confirmResult").innerHTML = "User clicked okay";
+                    document.getElementById("confirmDialog").close();
+                });
+
+                document.getElementById("promptCancel").addEventListener("click", () => {
+                    document.getElementById("resultPrompt").innerHTML = "User clicked cancel";
+                    document.getElementById("promptDialog").close();
+                });
+
+                document.getElementById("promptOkay").addEventListener("click", () => {
+                    document.getElementById("resultPrompt").innerHTML = "User typed:" + document.getElementById("userType").value;
+                    document.getElementById("promptDialog").close();
+                }); 
+
+            </script>
+
+        </main>
+
+    </body>
+
+</html>

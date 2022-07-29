@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../styles/sitestyle.css">
+        <title>About Me</title>
+    </head>
+
+    <body>
+        <header>
+            <!--Navigation-->
+            <img src="/images/moon.png" id="icon">
+            <nav class="nav">
+                <ul class="nav-ul">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                    <li><a href="https://www.linkedin.com/in/haileymtran/">LinkedIn</a></li>
+                    <li><a href="../pages/experiments.html">Experiments</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--
+        <section class="about-image-container">
+            <picture>
+                <img src="../images/hollywood.jpeg" alt="Hollywood Image" id="hollywood">
+            </picture>
+        </section>
+        -->
+
+        <section class="bio">
+            <h2 id="bio-header">About Hailey</h2>
+            <h1 id="bio-sub-header">Aspiring Web Developer</h1>
+                <p id="bio-para">
+                    Hello! My name is Hailey Tran! I'm currently a senior at the University of California San Diego and I am 
+                    majoring in Mathematics Computer Science & minoring in Sociology. I graduate at the end of Summer of 2022.
+                    I plan on diving directly into the tech industry post-grad! More specifically, I'm very interested in web-development 
+                    and front-end development. Academics aside, I'm from Los Angeles, CA! I love hiking when it's not too hot out!
+                    One of my goals is to participate in a marathon! I also really enjoy baking, I find it to be a great destresser! 
+                    The picture over on the right was me in Vietnam in 2019! I was visiting Ha Long Bay!
+                </p>
+                <picture>
+                    <img src="../images/bio.jpg" alt="Bio-Image" id="bio-image">
+                </picture>
+        </section>
+        <!--
+        <hr>
+
+        <section class="video">
+            <h2>One of my favorite movies</h2>
+            <figure>
+                <video width="500" height="300" poster="../images/placeholder.png" controls>
+                    <source src="../videos/PursuitOfHappyness.mp4" type="video/mp4">
+                </video>
+                <figcaption>Pursuit of Happyness with Will Smith</figcaption>
+            </figure>
+        </section>
+
+        -->
+
+        <h2 id="eee-header">Education, Experience, Extracurriculars</h2>
+        <section class="extra">
+            <!--
+            <picture>
+                <img src="../images/giesel.jpeg" alt="Giesel Library image" id="giesel">
+            </picture>
+            -->
+            <section id="education">
+                <h3>Education</h3>
+                <p>
+                    <b>University of California San Diego</b> <br>
+                    BS in <i>Mathematics Computer Science</i> with a Minor in <i>Sociology</i> <br> <br>
+                    <b>Los Angeles Mission College</b> <br>
+                    ADT in <i>Mathematics</i>
+                </p>
+            </section>
+
+            
+
+            <section id="experience">
+                <h3>Experience</h3>
+                <p>
+                    <ul>
+                        Mathematics Tutor | Los Angeles Mission College <br>
+                        <li>
+                            Coordinated with professors to construct workshops and assisted professors 
+                            to further demonstrate mathematical theories
+                        </li>
+                        <li>
+                            Guided students with their assignments and prepared students for exams & quizzes 
+                        </li>
+                        <br>
+                        Administrative Assistant | Los Angeles Mission College <br>
+                        <li>
+                            Organized and maintained data in filing systems, both physically and electronically
+                        </li>
+                        <li>
+                            Assisted with the communication among several departments and staff
+                        </li>
+                    </ul>
+                </p>
+            </section>
+
+            
+
+            <section id="extracurriculars">
+                <h3>Extracurriculars</h3>
+                <p>
+                    <ul>
+                        <li class="club-li">Girls Who Code | Secretary
+                            <details>
+                                <summary>Responsibilities & Duties</summary> 
+                                <p>
+                                    <ul>
+                                        <li>
+                                            Took notes during board meetings
+                                        </li>
+                                        <li>
+                                            Prepared general body meetings
+                                        </li>
+                                        <li>
+                                            Organized board events such as board meetings
+                                        </li>
+                                    </ul>
+                                </p>
+                            </details>
+                        </li>
+                        <br>
+                        <li class="club-li">SENDforC | Logistics Chair
+                            <details>
+                                <summary>Responsibilities & Duties</summary>
+                                <p>
+                                    <ul>
+                                        <li>
+                                            Organized center of operations
+                                        </li>
+                                        <li>
+                                            Reached out to different departments at UCSD for information for club events
+                                        </li>
+                                    </ul>
+                                </p>
+                            </details>
+                        </li>
+                        <br>
+                        <li class="club-li">Association for Women in Mathematics | Mentorship Committee
+                            <details>
+                                <summary>Responsibilities & Duties</summary>
+                                <p>
+                                    <ul>
+                                        <li>
+                                            Contributed to expansion of the club
+                                        </li>
+                                        <li>
+                                            Created forms & surveys for the mentors and mentees in the committee
+                                        </li>
+                                    </ul>
+                                </p>
+                            </details>
+                        </li>
+                    </ul>
+                </p>
+            </section>
+        </section>
+
+        <script>
+            var icon = document.getElementById("icon");
+            icon.onclick = function() {
+                document.body.classList.toggle("dark-theme");
+                if (document.body.classList.contains("dark-theme")) {
+                    icon.src = "/images/sun.png";
+                } else {
+                    icon.src = "/images/moon.png";
+                }
+            }
+        </script>
+    
+    <section id="footer">
+        <footer>
+            <a href="#top">Jump to the top of the page</a>
+        </footer>
+    </section>
+    
+    
+    </body>
+
+</html>
