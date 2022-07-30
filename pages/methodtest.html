@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/styles/sitestyle.css">
+        <title>Hailey's Portfolio</title>
+        
+    </head>
+    <body>
+        <header>
+            <nav class="nav">
+                <ul class="nav-ul">
+                    <li><a href="pages/about.html">About Me</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="https://www.linkedin.com/in/haileymtran/">LinkedIn</a></li>
+                    <li><a href="pages/experiments.html">Experiments</a></li>
+                    <li><a href="pages/methodtest.html">Method Test</a></li>
+                </ul>
+                
+            </nav>
+        </header>
+
+        <main>
+
+            <form id="testForm">
+                <fieldset>
+                    <legend>Form</legend>
+                    <label for="idNum">ID Number:</label><br>
+                    <input type="text" id="idNum" name="idNum"><br>
+                    <label for="articleName">Article Name:</label><br>
+                    <input type="text" id="articleName" name="articleName"><br>
+                    <label for="articleBody">Article Body:</label><br>
+                    <textarea id="articleBody" name="articleBody"></textarea><br>
+                    <label id="date"></label>
+                    <script>//Add newDate() </script>
+            </fieldset>
+            </form>
+            <section>
+                <button type="button" name="postBtn" id="postBtn">Post</button>  
+                <button type="button" name="getBtn" id="getBtn">Get</button> 
+                <button type="button" name="putBtn" id="putBtn">Put</button> 
+                <button type="button" name="deleteBtn" id="deleteBtn">Delete</button> 
+            </section>
+           <pre id="result" class="result"></pre>
+
+           <script src="/js/methodtestjs.js"></script>
+
+        </main>
+    </body>
+</html>
