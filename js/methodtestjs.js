@@ -4,7 +4,8 @@ let post = document.getElementById("postBtn");
 
 post.addEventListener("click", () => {
     var data = new FormData(document.getElementById("testForm"));
-
+    var current = new Date();
+    data.append("Date: ", current);
     fetch("https://httpbin.org/post", { 
         method: "POST", 
         body: data
@@ -14,7 +15,7 @@ post.addEventListener("click", () => {
 
     .then((data) => {
         outputResult.innerHTML = JSON.stringify(data,null,4);
-        timeDate();
+        
     })
 });
 
@@ -23,37 +24,47 @@ let get = document.getElementById("getBtn");
 
 get.addEventListener("click", () => {
     var data = new FormData(document.getElementById("testForm"));
+    var idNumber = data.get('idNum');
+    var artName = data.get('articleName');
+    var artBody = data.get('articleBody');
+    var current = new Date();
+    var date = data.append("Date: ", current);
 
-    fetch("https://httpbin.org/get", { 
+    fetch("https://httpbin.org/get?idNum="+idNumber+"&articleName="+artName+"&articleBody="+artBody+"&date="+date, { 
         method: "GET", 
         //body: data
+        headers: {Accept: 'application/json'}
     })
     .then(res => res.json())
-    //.then(data => console.log(data))
 
     .then((data) => {
         outputResult.innerHTML = JSON.stringify(data,null,4);
-        timeDate();
         console.log(data)
     })
 });
 
 //PUT
 let put = document.getElementById("putBtn");
-
 put.addEventListener("click", () => {
     var data = new FormData(document.getElementById("testForm"));
+    var idNumber = data.get('idNum');
+    var artName = data.get('articleName');
+    var artBody = data.get('articleBody');
+    var current = new Date();
+    var date = data.append("Date: ", current);
 
+    data = JSON.stringify({ idNum: idNumber, articleName: artName, articleBody: artBody, date });
     fetch("https://httpbin.org/put", { 
         method: "PUT", 
-        body: data
+        body: data,
+        headers: {Accept:'application/json'}
+
     })
     .then(res => res.json())
     //.then(data => console.log(data))
 
     .then((data) => {
         outputResult.innerHTML = JSON.stringify(data,null,4);
-        timeDate();
         console.log(data)
     })
 });
@@ -62,42 +73,24 @@ put.addEventListener("click", () => {
 let deletePress = document.getElementById("deleteBtn");
 
 deletePress.addEventListener("click", () => {
-    //var data = new FormData(document.getElementById("testForm"));
-    //data.append("idNum", document.getElementById("idNum").value);
-    //data.append("articleName", document.getElementById("articleName").value);
-    //data.append("articleBody", document.getElementById("articleBody").value);
+    var data = new FormData(document.getElementById("testForm"));
+    var idNumber = data.get('idNum');
+    var artName = data.get('articleName');
+    var artBody = data.get('articleBody');
+    var current = new Date();
+    var date = data.append("Date: ", current);
+
+    data = JSON.stringify({ idNum: idNumber, articleName: artName, articleBody: artBody, "Date " :date });
 
     fetch("https://httpbin.org/delete", { 
         method: "DELETE", 
-        //body: data
+        body: data,
+        headers: {Accept:'application/json'}
     })
-    .then(() => {
-        outputResult.innerHTML = ('Delete successful');
-        timeDate();
-    })
-    /*
     .then(res => res.json())
-    //.then(data => console.log(data))
-
     .then((data) => {
         outputResult.innerHTML = JSON.stringify(data,null,4);
-        console.log(data)
+        console.log(data);
     })
-    */
 });
-
-
-//DATE & TIME
-function timeDate() {
-    var current = new Date();
-    var currentTime = current.toLocaleTimeString();
-    var currentDate = current.toLocaleDateString();
-    let outputTimeDate = document.getElementById("date");
-    outputTimeDate.innerHTML = "Time & Date of post generate: \n" + "Time:" + currentTime + "Date" + currentDate;
-}
-
-
-
-
-
 
